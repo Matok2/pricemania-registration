@@ -1,0 +1,3 @@
+pricemania_registration:
+    resource: "@PricemaniaRegistrationBundle/Resources/config/routing.xml"
+    prefix:   /
