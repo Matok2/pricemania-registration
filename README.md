@@ -1,0 +1,1 @@
+# pricemania-registration
