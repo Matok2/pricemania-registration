@@ -4,7 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
+
     <route id="pricemania_registration_homepage" path="/">
-        <default key="_controller">PricemaniaRegistrationBundle:Default:index</default>
+        <default key="_controller">PricemaniaRegistrationBundle:Registration:new</default>
+    </route>
+
+    <route id="pricemania_registration_register" path="/registration">
+        <default key="_controller">PricemaniaRegistrationBundle:Registration:new</default>
+    </route>
+
+    <route id="pricemania_registration_completed" path="/registration-completed">
+        <default key="_controller">PricemaniaRegistrationBundle:Registration:completed</default>
     </route>
 </routes>
