@@ -53,7 +53,9 @@ class RegistrationController extends Controller
      */
     private function storeUser($user)
     {
-        $user->setPassword('password');
+        $encoder = $this->container->get('security.password_encoder');
+        $passwordHash = $encoder->encodePassword($user, $user->getPlainPassword());
+        $user->setPassword($passwordHash);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);

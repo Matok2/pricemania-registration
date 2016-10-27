@@ -15,12 +15,15 @@
 
 namespace Pricemania\Bundle\RegistrationBundle\Entity;
 
+use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * Description of User.
  *
  * @author Matej Kuna <matej.kuna@smeonline.sk>
  */
-class User
+class User implements UserInterface, EncoderAwareInterface
 {
     /**
      * @var string
@@ -66,6 +69,26 @@ class User
      * @var int
      */
     private $userId;
+
+    public function getEncoderName()
+    {
+        return; // use the default encoder
+    }
+
+    public function eraseCredentials()
+    {
+        $this->plainPassword = null;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function getUsername()
+    {
+        return $this->getEmail();
+    }
 
     /**
      * Set firstname.
