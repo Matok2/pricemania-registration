@@ -30,9 +30,9 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
         if ($form->isValid()) {
             $user = $form->getData();
-            $this->storeUser($user);
+            $userId = $this->storeUser($user);
 
-            return $this->successRegistrationRedirect();
+            return $this->successRegistrationRedirect($userId);
         }
 
         return $this->render('PricemaniaRegistrationBundle:Registration:register.html.twig',
@@ -62,11 +62,11 @@ class RegistrationController extends Controller
         return $user->getUserId();
     }
 
-    private function successRegistrationRedirect()
+    private function successRegistrationRedirect($userId)
     {
         $this->addFlash(
             'success',
-            'Ta-daaaa! You did it.'
+            'Ta-daaaa! You did it. You have been registered as user with ID '.$userId
         );
 
         return $this->redirectToRoute('pricemania_registration_completed');

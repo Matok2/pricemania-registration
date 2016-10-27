@@ -1,43 +1,65 @@
 {% extends 'PricemaniaRegistrationBundle::base.html.twig' %}
 
-{% block pricemania_registation_content %}
+{% block pricemania_registration_style_sheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet">
+{% endblock %}
 
+{% block pricemania_registration_footer_script %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+    $('input.js-datepicker').datepicker({
+        format: "dd.mm.yyyy",
+        weekStart: 1
+    });
+    </script>
+{% endblock %}
+
+{% block pricemania_registation_content %}
     <h2>Put your data here...</h2>
 
     {{ form_start(registration_form) }}
     <div class="form-group">
         {{ form_label(registration_form.firstname) }}
+        {% if registration_form.firstname.vars.errors.count %}
+            <div class="alert alert-danger" role="alert">{{ form_errors(registration_form.firstname) }}</div>
+        {% endif %}
         {{ form_widget(registration_form.firstname, { attr: {class: 'form-control', 'placeholder': 'Enter firstname'} }) }}
-        {{ form_errors(registration_form.firstname) }}
     </div>
     <div class="form-group">
         {{ form_label(registration_form.lastname) }}
+        {% if registration_form.lastname.vars.errors.count %}
+            <div class="alert alert-danger" role="alert">{{ form_errors(registration_form.lastname) }}</div>
+        {% endif %}
         {{ form_widget(registration_form.lastname, { attr: {class: 'form-control', 'placeholder': 'Enter lastname'} }) }}
-        {{ form_errors(registration_form.lastname) }}
+
     </div>
    <div class="form-group">
         {{ form_label(registration_form.birthdate) }}
-        {{ form_widget(registration_form.birthdate, { attr: {class: 'form-control', 'placeholder': 'Enter birthdate'} }) }}
-        {{ form_errors(registration_form.birthdate) }}
+        {% if registration_form.birthdate.vars.errors.count %}
+            <div class="alert alert-danger" role="alert">{{ form_errors(registration_form.birthdate) }}</div>
+        {% endif %}
+        {{ form_widget(registration_form.birthdate, { attr: {class: 'form-control js-datepicker', 'placeholder': 'Enter birthdate'} }) }}
     </div>
      <div class="form-group">
         {{ form_label(registration_form.email) }}
+        {% if registration_form.email.vars.errors.count %}
+            <div class="alert alert-danger" role="alert">{{ form_errors(registration_form.email) }}</div>
+        {% endif %}
         {{ form_widget(registration_form.email, { attr: {class: 'form-control', 'placeholder': 'Enter email'} }) }}
-        {{ form_errors(registration_form.email) }}
     </div>
     <div class="form-group">
         {{ form_label(registration_form.plainPassword.first) }}
+        {% if registration_form.plainPassword.first.vars.errors.count %}
+            <div class="alert alert-danger" role="alert">{{ form_errors(registration_form.plainPassword.first) }}</div>
+        {% endif %}
         {{ form_widget(registration_form.plainPassword.first, { attr: {class: 'form-control', 'placeholder': 'Enter password'} }) }}
-        {{ form_errors(registration_form.plainPassword.first) }}
     </div>
     <div class="form-group">
         {{ form_label(registration_form.plainPassword.second) }}
         {{ form_widget(registration_form.plainPassword.second, { attr: {class: 'form-control', 'placeholder': 'Repeat password'} }) }}
     </div>
 
-
-
-
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
     {{ form_end(registration_form) }}
 {% endblock %}

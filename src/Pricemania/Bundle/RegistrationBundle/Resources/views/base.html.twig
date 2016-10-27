@@ -15,6 +15,8 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
+  {% block pricemania_registration_style_sheets %}
+  {% endblock %}
 </head>
 
 <body>
@@ -31,5 +33,7 @@
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ asset('bundles/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% block pricemania_registration_footer_script %}
+    {% endblock %}
 </body>
 </html>
