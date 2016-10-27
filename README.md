@@ -16,6 +16,7 @@ composer install
 
 then set up parameters in app/config/parameters.yml file (not the best solution)
 
+```
 # This file is auto-generated during the composer install
 parameters:
     database_host: 127.0.0.1
@@ -28,10 +29,10 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
-
+```
 
 ## Database
-
+```
 CREATE TABLE `user` (
   `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE `user` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
+```
 Or you can use migration command:
 
 ```
