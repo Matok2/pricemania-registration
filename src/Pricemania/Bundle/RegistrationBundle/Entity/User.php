@@ -22,11 +22,20 @@ namespace Pricemania\Bundle\RegistrationBundle\Entity;
  */
 class User
 {
-    //put your code here
     /**
      * @var string
      */
-    private $username;
+    private $firstname;
+
+    /**
+     * @var string
+     */
+    private $lastname;
+
+    /**
+     * @var DateTime
+     */
+    private $birthdate;
 
     /**
      * @var string
@@ -51,7 +60,7 @@ class User
     /**
      * @var bool
      */
-    private $enabled;
+    private $enabled = true;
 
     /**
      * @var int
@@ -59,27 +68,75 @@ class User
     private $userId;
 
     /**
-     * Set username.
+     * Set firstname.
      *
-     * @param string $username
+     * @param string $firstname
      *
      * @return User
      */
-    public function setUsername($username)
+    public function setFirstname($firstname)
     {
-        $this->username = $username;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     /**
-     * Get username.
+     * Get firstname.
      *
      * @return string
      */
-    public function getUsername()
+    public function getFirstname()
     {
-        return $this->username;
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname.
+     *
+     * @param string $lastname
+     *
+     * @return User
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname.
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set birthdate.
+     *
+     * @param string $birthdate
+     *
+     * @return User
+     */
+    public function setBirthdate($birthdate)
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthdate.
+     *
+     * @return string
+     */
+    public function getBirthdate()
+    {
+        return $this->birthdate;
     }
 
     /**

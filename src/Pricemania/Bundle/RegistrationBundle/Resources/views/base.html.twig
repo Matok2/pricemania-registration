@@ -7,8 +7,10 @@
   <title>Heya! Register here bro!</title>
   <meta name="description" content="Pricemania Registration Project">
   <meta name="author" content="Matej Kuna">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link href="{{ asset('bundles/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -16,7 +18,18 @@
 </head>
 
 <body>
-    {% block pricemania_registation_content %}
-    {% endblock %}
+    <div class="container">
+
+        {% for flash_message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success" role="alert">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+        {% block pricemania_registation_content %}
+        {% endblock %}
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{{ asset('bundles/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

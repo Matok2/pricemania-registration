@@ -6,10 +6,11 @@
           <generator strategy="IDENTITY"/>
         </id>
 
-        <field name="username" type="string" column="username" nullable="false"/>
+        <field name="firstname" type="string" column="firstname" nullable="false"/>
+        <field name="lastname" type="string" column="lastname" nullable="false"/>
         <field name="email" type="string" column="email" nullable="false"/>
         <field name="password" type="string" column="password" nullable="false"/>
         <field name="salt" type="string" column="salt" nullable="true"/>
-        <field name="enabled" type="bool" column="enabled" nullable="false"/>
+        <field name="enabled" type="boolean" column="enabled" nullable="false"/>
     </entity>
 </doctrine-mapping>

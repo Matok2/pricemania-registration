@@ -10,6 +10,7 @@
 namespace Pricemania\Bundle\RegistrationBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -22,10 +23,17 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('firstname', TextType::class)
+            ->add('lastname', TextType::class)
+            ->add('birthdate', DateType::class, array(
+                'widget' => 'single_text',
+                'format' => 'dd.MM.yyyy',
+            ))
             ->add('email', EmailType::class)
-            ->add('username', TextType::class)
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
+                'error_bubbling' => false,
+                'invalid_message' => 'The password fields must match.',
                 'first_options' => array('label' => 'Password'),
                 'second_options' => array('label' => 'Repeat Password'),
             )
