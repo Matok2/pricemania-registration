@@ -57,6 +57,8 @@ php app/console doctrine:migration:migrate
  - Use better password policy (6 length of any character is not enough)
 - Unique validation on email (very easy in symfony)
 - Email notification about registration
+- UI/UX: User should know validation rules before form submit (length limits, required fields etc)
 
 ## Author
 Matej Kuna mat.kuna@gmail.com
+Solved: up to 6 hours (work was split into 4x1.5 hour or so... and it takes finally more time)
